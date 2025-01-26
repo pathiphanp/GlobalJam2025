@@ -3640,7 +3640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Oxygen = 100
+  m_text: AirBubble = 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ea9600bfeaaef6744b84453404e8a6a7, type: 2}
   m_sharedMaterial: {fileID: 5968360578057440688, guid: ea9600bfeaaef6744b84453404e8a6a7, type: 2}
@@ -4026,6 +4026,7 @@ MonoBehaviour:
   pointPlayerText: {fileID: 1760443263}
   pointPlayer: 0
   pointPlayerShow: 0
+  playerHideAll: 0
   pointEnemyText: {fileID: 1371131236}
   pointEnemy: 0
   pointEnemyShow: 0
@@ -4035,6 +4036,7 @@ MonoBehaviour:
   stayBtn: {fileID: 1037772799}
   showStateTurn: {fileID: 1876510333}
   backjack: {fileID: 1446603110}
+  countGame: 0
 --- !u!4 &968466116
 Transform:
   m_ObjectHideFlags: 0

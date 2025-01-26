@@ -72,7 +72,7 @@ public class ControlEnemy : MonoBehaviour
             damage *= 2;
         }
         hp -= damage;
-        hpText.text = "Oxygen = " + hp.ToString();
+        hpText.text = "AirBubble = " + hp.ToString();
         if (isDoubleDamageTake)
         {
             isDoubleDamageTake = false;
@@ -120,7 +120,7 @@ public class ControlEnemy : MonoBehaviour
             }
             hp += rejenpoint;
         }
-        hpText.text = "Oxygen = " + hp.ToString();
+        hpText.text = "AirBubble = " + hp.ToString();
         if (isDoubleDamageTake)
         {
             isDoubleDamageTake = false;

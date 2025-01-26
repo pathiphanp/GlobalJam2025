@@ -40,6 +40,8 @@ public class ControlCard : MonoBehaviour
 
     [SerializeField] int countGame;
     int rndSkillUse;
+
+    // bool isStop = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -51,7 +53,7 @@ public class ControlCard : MonoBehaviour
     }
     void RandomUseSkill()
     {
-        rndSkillUse = UnityEngine.Random.Range(1, 6);
+        rndSkillUse = UnityEngine.Random.Range(3, 6);
     }
     void RandomDeckCard()
     {
@@ -93,14 +95,14 @@ public class ControlCard : MonoBehaviour
     }
     IEnumerator SpawnStartGame()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
         SpawnCard(pointPlayerSpawnCard.transform, true, true);
         SpawnCard(pointEnemySpawnCard.transform, false, false);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         SpawnCard(pointPlayerSpawnCard.transform, true, true);
         SpawnCard(pointEnemySpawnCard.transform, true, false);
-        yield return new WaitForSeconds(1.5f);
-        Invoke("StartPlayerTurn", 2f);
+        yield return new WaitForSeconds(1f);
+        Invoke("StartPlayerTurn", 1f);
     }
     public void SetUpCard()
     {
@@ -246,6 +248,7 @@ public class ControlCard : MonoBehaviour
     #region Check Win
     void ChooseWinner()
     {
+        allPlayerAction.SetActive(false);
         playerOnStand = false;
         enemyOnStand = false;
         StartCoroutine(StartChooseWinner());
@@ -254,7 +257,7 @@ public class ControlCard : MonoBehaviour
     {
         //Show all card
         CallOpenAllCard();
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
         if (pointPlayer == pointEnemy)
         {
             // Debug.Log("Draw");
@@ -300,6 +303,7 @@ public class ControlCard : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
         Debug.Log("Reset Game");
+        // isStop = false;
         ResetGame();
     }
     void PlayerWin()
@@ -344,5 +348,6 @@ public class ControlCard : MonoBehaviour
             aec.GetComponent<Cards>().OpenShowCard();
         }
         pointEnemyText.text = pointEnemy + " / 21";
+        pointPlayerText.text = pointPlayer + " / 21";
     }
 }
